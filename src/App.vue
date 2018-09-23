@@ -16,8 +16,11 @@
 </script>
 
 <style>
+  @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+  
   body, html {
     margin: 0;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 14px;
   }
 </style>
