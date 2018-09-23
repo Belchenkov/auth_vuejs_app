@@ -25,8 +25,6 @@
 </template>
 
 <script>
-  import axios from '../../axios-auth'
-
   export default {
     data () {
       return {
@@ -40,14 +38,11 @@
           email: this.email,
           password: this.password,
         }
-        console.log(formData)
-        axios.post('/verifyPassword?key=AIzaSyCXlVPPWknVGhfc60mt7Jkv0Xzrho7_mwc', {
+
+        this.$store.dispatch('login', {
           email: formData.email,
-          password: formData.password,
-          returnSecureToken: true
+          password: formData.password
         })
-          .then(res => console.log(res))
-          .catch(error => console.log(error))
       }
     }
   }
