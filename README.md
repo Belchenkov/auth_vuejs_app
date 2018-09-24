@@ -2,6 +2,8 @@
 
 > Build Auth Modules on Vuejs/Firebase
 
+> Demo: 
+
 ## Build Setup
 
 ``` bash
