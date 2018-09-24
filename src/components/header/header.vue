@@ -7,23 +7,41 @@
     </div>
     <nav>
       <ul>
-        <li>
+        <li v-if="!auth">
           <router-link to="/signup">
           <i class="fas fa-user-plus"></i> Sign Up</router-link>
         </li>
-        <li>
+        <li v-if="!auth">
           <router-link to="/signin">
           <i class="fas fa-sign-in-alt"></i> Sign In</router-link>
         </li>
-        <li>
+        <li v-if="auth">
           <router-link to="/dashboard">
           <i class="fas fa-tachometer-alt"></i>
           Dashboard</router-link>
+        </li>
+        <li v-if="auth">
+          <button @click="onLogout" class="logout">Logout</button>
         </li>
       </ul>
     </nav>
   </header>
 </template>
+
+<script>
+  export default {
+    computed: {
+      auth () {
+        return this.$store.getters.isAuthenticated
+      }
+    },
+    methods: {
+      onLogout () {
+        this.$store.dispatch('logout')
+      }
+    }  
+  }
+</script>
 
 <style scoped>
   @import url('https://fonts.googleapis.com/css?family=Clicker+Script');
@@ -38,7 +56,6 @@
     padding: 0 20px;
     font-family: 'Clicker Script', cursive;
     font-size: 22px;
-
   }
 
   .logo {
@@ -85,5 +102,13 @@
   li a:active,
   li a.router-link-active {
     color: #fa923f;
+  }
+
+  .logout {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    color: #fff;
   }
 </style>
